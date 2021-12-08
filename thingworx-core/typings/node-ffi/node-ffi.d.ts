@@ -9,7 +9,7 @@
 /// <reference path="../ref-struct/ref-struct.d.ts" />
 
 declare module "ffi" {
-    import ref = require('ref');
+    import ref = require('ref-napi');
     import StructType = require('ref-struct');
 
     /** Provides a friendly API on-top of `DynamicLibrary` and `ForeignFunction`. */

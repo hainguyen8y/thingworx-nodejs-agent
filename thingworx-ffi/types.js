@@ -1,7 +1,7 @@
-﻿var Ref = require('ref');
-var FFI = require('ffi');
-var Struct = require('ref-struct');
-var Union = require('ref-union');
+﻿var Ref = require('ref-napi');
+var FFI = require('ffi-napi');
+var Struct = require('ref-struct-napi');
+var Union = require('ref-union-napi');
 
 var debug = require('debug')('thingworx-ffi');
 

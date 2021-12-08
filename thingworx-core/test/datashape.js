@@ -1,7 +1,7 @@
 ﻿var assert = require("assert");
 var ffi = require('thingworx-ffi');
 var util = require('util');
-var ref = require('ref');
+var ref = require('ref-napi');
 
 var libjson = ffi.LibCJSON
 var libtwx = ffi.LibTWX;

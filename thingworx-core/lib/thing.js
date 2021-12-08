@@ -24,8 +24,8 @@ var ThingCallbackHandler = require('./thing/callback_handler.js');
 
 var persist = require('thingworx-utils').Persist.persist;
 
-var ref = require('ref');
-var ffi = require('ffi');
+var ref = require('ref-napi');
+var ffi = require('ffi-napi');
 
 ///////////////////////////////////////////////////////////////////////////////
 // Thing object

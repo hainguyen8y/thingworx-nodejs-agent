@@ -54,6 +54,10 @@ switch (osPlatform) {
 				twxLibName = 'twApi.so'
 				twxLibPath = path.normalize('../binaries/gcc-linux-armv6/release');
 				break
+			case "x64":
+				twxLibName = 'twApi.so'
+				twxLibPath = path.normalize('../binaries/gcc-linux-x64');
+				break
 			default:
 				errStr = 'Unsupported OS architecture ' + osArch
 				break

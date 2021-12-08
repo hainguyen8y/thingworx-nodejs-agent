@@ -11,18 +11,27 @@
     "async": "^1.4.2",
     "debug": "^2.2.0",
     "express": "^4.13.3",
+    "ffi-napi": "^3.0.0",
+    "ref-array-napi": "^1.2.2",
+    "ref-napi": "^3.0.3",
+    "ref-struct-napi": "^1.1.1",
+    "ref-union-napi": "^1.0.2",
+    "shelljs": "^0.8.4",
     "socket.io": "^1.3.7",
     "terminal-menu": "^2.1.1",
-    "thingworx-api": "*",
-    "thingworx-driver-examples": "*",
-    "thingworx-utils": "*",
+    "thingworx-api": "file:../thingworx-api",
+    "thingworx-core": "file:../thingworx-core",
+    "thingworx-driver": "file:../thingworx-driver",
+    "thingworx-driver-examples": "file:../thingworx-driver-examples",
+    "thingworx-ffi": "file:../thingworx-ffi",
+    "thingworx-utils": "file:../thingworx-utils",
     "underscore": "^1.8.3",
     "xml2js": "^0.4.13"
   },
   "scripts": {
     "presetup-examples": "npm install shelljs",
     "setup-examples": "node setup-examples.js",
-    "start": "node app.js"
+    "start": "node --preserve-symlinks app.js"
   },
   "analyze": true,
   "private": true

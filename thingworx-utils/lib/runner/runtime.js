@@ -1,5 +1,5 @@
 ﻿var eventEmitter = require('events').EventEmitter;
-var ref = require('ref');
+var ref = require('ref-napi');
 var libtwx = require('thingworx-ffi').LibTWX;
 var Runner = require('./runner.js');
 var logger = require('../logger/logger.js');

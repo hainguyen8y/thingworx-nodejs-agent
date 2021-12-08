@@ -2,8 +2,8 @@
 
 var util = require('util');
 var _ = require('underscore');
-var ref = require('ref');
-var ffi = require('ffi');
+var ref = require('ref-napi');
+var ffi = require('ffi-napi');
 var debug = require('debug')('thingworx-core:Thing');
 var logger = require('thingworx-utils').Logger;
 

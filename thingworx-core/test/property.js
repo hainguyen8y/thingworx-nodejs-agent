@@ -1,6 +1,6 @@
 var assert = require("assert");
 var util = require('util');
-var ref = require('ref');
+var ref = require('ref-napi');
 
 var Property = require('../lib/property.js');
 var types = require('thingworx-ffi').Types;

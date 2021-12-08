@@ -5,8 +5,8 @@ var util = require('util');
 var libtwx = require('thingworx-ffi').LibTWX;
 var libjson = require('thingworx-ffi').LibCJSON;
 var types = require('thingworx-ffi').Types;
-var ref = require('ref');
-var ffi = require('ffi');
+var ref = require('ref-napi');
+var ffi = require('ffi-napi');
 
 var TwxBinding = require('./binding.js');
 var TwxDataShape = require('./datashape.js');

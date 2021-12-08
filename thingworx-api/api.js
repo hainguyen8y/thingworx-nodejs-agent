@@ -3,7 +3,9 @@ var logger = require('thingworx-utils').Logger;
 var Runtime = require('thingworx-utils').Runtime;
 var persist = require('thingworx-utils').Persist.persist;
 var util = require('util');
-var ref = require('ref');
+var ref = require('ref-napi');
+var ffi = require('ffi-napi');
+var refArray = require('ref-array-napi');
 var EventEmitter = require('events').EventEmitter;
 var _ = require('underscore');
 var PropertyMonitor = require('./lib/property-monitor.js');
@@ -27,6 +29,7 @@ var TWX_SDK_VERSION = libtwx.twApi_GetVersion();
 
 var events = ['init', 'connect', 'disconnect', 'ping', 'pong'];
 
+var appKeyHanderCb;
 ///////////////////////////////////////////////////////////////////////////
 // various option parsers
 
@@ -53,9 +56,15 @@ var setApiInitializationOptions = function (options) {
 	if (appKey == undefined)
 		throw new Error("'appkey' field is undefined;");
 	
-	var val = libtwx.twApi_Initialize(host, port, resource, appKey, gatewayName, 
-                                      msgChunkSize, frameSize, autoReconnect);
-	
+	appKeyHanderCb = ffi.Callback('void', [refArray(ref.types.char), 'uint32'], _.bind(function (datapointer, len) {
+		datapointer.length = len;
+		var keybytes = Buffer.from(appKey, 'utf8');
+		for(var i = 0; i < keybytes.length; i++) {
+			datapointer[i] = keybytes[i];
+		}
+	}, this));
+
+	var val = libtwx.twApi_Initialize(host, port, resource, appKeyHanderCb, gatewayName, msgChunkSize, frameSize, autoReconnect);
 	if (val) {
 		throw new Error(util.format('Error initalizing thingworx API - returned error code %d', val));
 	}
@@ -113,7 +122,7 @@ Api.prototype.initialize = function (options) {
 	
 	// Set initialization options if any are passed in.
 	if (options) setApiInitializationOptions(options);
-	
+
 	// Create event handlers
 	this.connectHandler = new callbacks.EventCallback(_.bind(function (ws, msg, len) {
 		this.emit('connect', msg);
@@ -164,6 +173,7 @@ Api.prototype.initialize = function (options) {
 	// Keep handles for all callbacks until the process exits 
 	// Prevents objects from being GC'ed
 	process.on('exit', _.bind(function () {
+		var appKeyHander = appKeyHanderCb;
 		var connectHandler = this.connectHandler;
 		var disconnectHandler = this.disconnectHandler;
 		var pongHandler = this.pongHandler;

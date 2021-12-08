@@ -1,5 +1,5 @@
 ﻿var eventEmitter = require('events').EventEmitter;
-var ref = require('ref');
+var ref = require('ref-napi');
 var async = require('async');
 var libtwx = require('thingworx-ffi').LibTWX;
 var types = require('thingworx-ffi').Types;

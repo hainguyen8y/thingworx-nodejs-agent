@@ -1,6 +1,6 @@
 ﻿var types = require('./types.js');
-var ref = require('ref');
-var ffi = require('ffi');
+var ref = require('ref-napi');
+var ffi = require('ffi-napi');
 
 var debug = require('debug')('thingworx-ffi');
 

@@ -3,8 +3,8 @@ var libjson = require('thingworx-ffi').LibCJSON;
 var types = require('thingworx-ffi').Types;
 var logger = require('thingworx-utils').Logger;
 var type_utils = require('thingworx-ffi').Types.utils;
-var ref = require('ref');
-var ffi = require('ffi');
+var ref = require('ref-napi');
+var ffi = require('ffi-napi');
 var util = require('util');
 
 var debug = require('debug')('thingworx-core:Event');

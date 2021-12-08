@@ -7,7 +7,7 @@
 /// <reference path="../ref/ref.d.ts" />
 
 declare module "ref-struct" {
-	import ref = require('ref');
+	import ref = require('ref-napi');
 
 	/**
 	 * This is the `constructor` of the Struct type that gets returned.

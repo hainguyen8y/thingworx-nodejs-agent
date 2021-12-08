@@ -114,7 +114,7 @@ menu.on('select', function (label) {
 	}
 
 	console.log('SELECTED: %s', label.slice(2).trim());
-	var example = spawn(nodeProcess, [path.basename(args)], { cwd: path.dirname(path.join(__dirname, args))});
+	var example = spawn(nodeProcess, ['--preserve-symlinks', path.basename(args)], { cwd: path.dirname(path.join(__dirname, args))});
 	example.stdout.pipe(process.stdout);
 	example.stderr.pipe(process.stderr);
 

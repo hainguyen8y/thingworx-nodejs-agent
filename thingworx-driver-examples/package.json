@@ -8,7 +8,6 @@
     "email": ""
   },
   "dependencies": {
-    "thingworx-driver": "*",
     "underscore": "^1.8.3",
     "xmldom": "^0.1.19",
     "xpath": "0.0.9"

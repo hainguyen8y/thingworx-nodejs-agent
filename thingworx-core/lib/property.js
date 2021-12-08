@@ -9,8 +9,8 @@ var debug = require('debug')('thingworx-core:Property');
 var libtwx = require('thingworx-ffi').LibTWX;
 var libjson = require('thingworx-ffi').LibCJSON;
 var types = require('thingworx-ffi').Types;
-var ref = require('ref');
-var ffi = require('ffi');
+var ref = require('ref-napi');
+var ffi = require('ffi-napi');
 var utils = types.utils;
 
 var events = ['change'];

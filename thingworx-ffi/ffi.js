@@ -1,5 +1,5 @@
-﻿var ffi = require('ffi');
-var ref = require('ref');
+﻿var ffi = require('ffi-napi');
+var ref = require('ref-napi');
 var path = require('path');
 var types = require('./types.js');
 var debug = require('debug')('thingworx-ffi');
@@ -27,7 +27,7 @@ var libcJSON = ffi.Library(dllPath + 'twApi', {
 var libtwx = ffi.Library(dllPath + 'twApi', {
 	// twApi function calls
 	"twApi_GetVersion" : ["string", []],
-	"twApi_Initialize" : ["int", ["string", "uint16", "string", "string", "string", "uint32", "uint16", "char"]],
+	"twApi_Initialize" : ["int", ["string", "uint16", "string", "void*", "string", "uint32", "uint16", "char"]],
 	"twApi_Delete"     : ["int", []],
 	"twApi_Connect"    : ["int", ["uint32", "int32"]],
 	"twApi_Disconnect" : ["int", ["string"]],
